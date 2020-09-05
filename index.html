@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Arduino Web Page Text to LED</title>
+        <script>
+
+        strLine1 = "";
+       
+        
+        function SendText()
+        {
+            nocache = "&nocache=" + Math.random() * 1000000;
+            var request = new XMLHttpRequest();
+            
+            strLine1 = "&L1=" + document.getElementById("txt_form").line1LCD.value;
+            console.log("Sent");
+            request.open("GET", "ajax_inputs" + strLine1 +  nocache, true);
+            request.send(null);
+        }
+        </script>
+    </head>
+
+    <body onload="GetArduinoIO()">
+	<Center>
+	<h1>Rajiv Gandhi University of Knowledge Technologies<br>Rkvalley</h1>
+
+	<h1>Digital Notice Board</h1>
+	<hr/>
+        
+        <form id="txt_form" action="#" name="frmText">
+	<h2>Write Text to Display on Digital Notice Board  </h3>
+            <input type="text" name="line1LCD" size="16" maxlength="16" placeholder=" "/><br /><br />
+            
+        </form>
+	<button onclick="SendText()" >Send Text </button>
+        <hr/>
+	<footer>DINESH</footer>
+    </body>
+<style>
+footer{
+	color:white;
+}
+h1{
+	padding:0px;
+	margin:0px;
+	text-shadow:1px 1px 1px white,1px 1px 5px black;
+	color:red;
+	font-family:Segoe Print;
+	font-size:30px;
+}
+h1 img{
+	height:130px;
+}
+body{
+	text-align:center;
+	background:url(colorful_flowers_dark_background-wide.jpg) -100px -100px;
+}
+h2{
+	text-shadow:1px 1px 1px black;
+	border-bottom:1px solid #fff;
+	color:white;
+}
+input{
+	padding:10px;
+	margin:10px;
+	transition:0.5s;
+	min-width:200px;
+	border:1px solid blue;
+	
+}
+input:hover,input:focus{
+	box-shadow:0px 0px 3px 1px #67f;
+	background:lightgray;
+	
+}
+button{
+	padding:10px;
+	min-width:100px;
+	margin:15px;
+	margin-left:30px;
+	background:#597;
+	color:#fff;
+	border:1px solid teal;
+	transition:0.5s;
+	position:relative;
+	top:-100px;
+	left:0px;
+}
+form{
+	margin-top:100px;
+	padding:10px;
+	width:30%;
+	height:230px;
+	box-shadow:0px 0px 5px 1px white;
+}
+button:hover{
+	background:#7a9;
+}
+</style>
+</html>
